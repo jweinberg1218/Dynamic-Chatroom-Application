@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Browse Chatrooms - {{ super() }}{% endblock %}
+
+{% block body %}
+		<div>
+			Current chatroom: {{currentChatroom}}
+			<br />
+			<a href="/createChatroom/">Click here to create new chatroom</a>
+		</div>
+		
+		<ul>
+			{% for chatroom in chatrooms %}
+				<li><a href="/chatroom/?id={{ chatroom.id }}">{{ chatroom.name }}</a> - <a href="/chatroom/join/?id={{ chatroom.id }}">join</a> - <a href="/chatroom/leave/?id={{ chatroom.id }}">leave</a> - <a href="/chatroom/delete/?id={{ chatroom.id }}">delete</a></li>
+			{% else %}
+				<li>No chatrooms currently exist</li>
+			{% endfor %}
+		</ul>
+{% endblock %}

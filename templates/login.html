@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Login - {{ super() }}{% endblock %}
+
+{% block body %}
+		<form action="" method="post">
+			Username:  <input type="text" name="username" />
+			<br />
+			Password:  <input type="password" name="password" />
+			<br />
+			<input type="submit" value="Login" />
+			<br />
+			<br />
+			<a href="/register/">Click here to register an account</a>
+		</form>
+{% endblock %}

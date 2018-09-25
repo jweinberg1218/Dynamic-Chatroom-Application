@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Chatroom - {{ super() }}{% endblock %}
+
+{% block head %}
+		<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+		<a href="/browseChatrooms/">Browse Chatrooms</a>
+		<h1>Chatroom: {{ name }}</h1>
+		<div id="chatroom">
+			<ul id="messages" class="messages">
+				<!-- Messages go here -->
+			</ul>
+		</div>
+		<br />
+		<textarea id="message" name="message"></textarea>
+		<button id="sendButton" type="button" name="sendButton">Send</button>
+{% endblock %}

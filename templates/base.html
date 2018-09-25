@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Chat App{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}" />		
+		{% block head %}
+		{% endblock %}
+	</head>
+	<body>
+		{% if "username" in session %}
+			Hello {{ session['username'] }}! <a href="{{ url_for('logout') }}">Click here to logout</a>
+			<hr />
+		{% endif %}
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class="messages">
+					{% for m in messages %}
+						<li>{{ m }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+		{% block body %}
+		{% endblock %}
+	</body>
+</html>
